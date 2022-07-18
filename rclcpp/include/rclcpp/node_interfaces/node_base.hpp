@@ -39,13 +39,6 @@ class NodeBase : public NodeBaseInterface, public std::enable_shared_from_this<N
 public:
   RCLCPP_SMART_PTR_ALIASES_ONLY(NodeBase)
 
-  /// Constructor.
-  /**
-   * If nullptr (default) is given for the default_callback_group, one will
-   * be created by the constructor using the create_callback_group() method,
-   * but virtual dispatch will not occur so overrides of that method will not
-   * be used.
-   */
   RCLCPP_PUBLIC
   NodeBase(
     const std::string & node_name,
@@ -53,8 +46,7 @@ public:
     rclcpp::Context::SharedPtr context,
     const rcl_node_options_t & rcl_node_options,
     bool use_intra_process_default,
-    bool enable_topic_statistics_default,
-    rclcpp::CallbackGroup::SharedPtr default_callback_group = nullptr);
+    bool enable_topic_statistics_default);
 
   RCLCPP_PUBLIC
   virtual
